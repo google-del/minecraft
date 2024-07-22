@@ -19420,84 +19420,21 @@
                         switch (null == t && (t = 10),
                         this.built_material = this.finish,
                         this.finish) {
-                case "alloy":
-                    this.buildAlloyMaterial();
-                    break;
-                case "gold":
-                    this.buildGoldMaterial();
-                    break;
-                case "titanium":
-                    this.buildTitaniumMaterial();
-                    break;
-                case "carbon":
-                    this.buildCarbonMaterial();
-                    break;
-                case "ultracarbon":
-                    this.buildultraCarbonMaterial();
-                    break;
-                case "greencarbon":
-                    this.buildgreenCarbonMaterial();
-                    break;
-                case "bluecarbon":
-                    this.buildblueCarbonMaterial();
-                    break;
-                case "copper":
-                    this.buildCopperMaterial();
-                    break;
-                case "diamond":
-                    this.buildDiamondMaterial();
-                    break;
-                case "x27":
-                    this.buildX27Material();
-                    break;
-                case "fullcolor":
-                    this.buildFullColorMaterial();
-                    break;
-                case "fullcolore":
-                    this.buildFullColorrMaterial();
-                    break;
-                case "emeraldd":
-                    this.buildEmeraldMaterial();
-                    break;
-                case "onyx":
-                    this.buildOnyxMaterial();
-                    break;
-                case "Nebulium":
-                    this.buildNebuliumMaterial();
-                    break;
-                case "transparentt":
-                    this.buildTransparentMaterial();
-                    break;
-                case "sapphiree":
-                    this.buildSapphireMaterial();
-                    break;
-                case "midnightbluee":
-                    this.buildMidnightBlueMaterial();
-                    break;
-                case "seaa":
-                    this.buildSeaMaterial();
-                    break;
-                case "violett":
-                    this.buildVioletMaterial();
-                    break;
-                case "bronzee":
-                    this.buildBronzeMaterial();
-                    break;
-                case "rubyy":
-                    this.buildRubyMaterial();
-                    break;
-                case "silverr":
-                    this.buildSilverMaterial();
-                    break;
-                case "uraniumm":
-                    this.buildUraniumMaterial();
-                    break;
-                case "cloudd":
-                    this.buildCloudMaterial();
-                    break;
-                default:
-                    this.buildDefaultMaterial()
-                }
+                        case "alloy":
+                            this.buildAlloyMaterial();
+                            break;
+                        case "gold":
+                            this.buildGoldMaterial();
+                            break;
+                        case "titanium":
+                            this.buildTitaniumMaterial();
+                            break;
+                        case "carbon":
+                            this.buildCarbonMaterial();
+                            break;
+                        default:
+                            this.buildDefaultMaterial()
+                        }
                         return this.base_color = this.material.color.getHex(),
                         s = this.base_color >> 16 & 255,
                         i = this.base_color >> 8 & 255,
@@ -19571,251 +19508,64 @@
                         })
                     }
                     ,
-                    t.prototype.buildFullColorMaterial = function () {
-                var t;
-                return t = IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 12632256,
-                    shininess: 50,
-                    bumpScale: .1,
-                    color: t,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },
-            t.prototype.buildGoldMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 10506256,
-                    shininess: 50,
-                    bumpScale: .1,
-                    color: 8413232,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },
-            t.prototype.buildCopperMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 11554864,
-                    shininess: 15,
-                    bumpScale: .1,
-                    color: 10514512,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },
-            t.prototype.buildFullColorrMaterial = function () {
-                var t;
-                return t = IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 6316128,
-                    shininess: 5,
-                    bumpScale: .1,
-                    color: t,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: IIIll
-                })
-            }, t.prototype.buildOnyxMaterial = function() {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specular: 6316128,
-                    shininess: 85,
-                    bumpScale: .1,
-                    color: 2368548,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },
-            t.prototype.buildNebuliumMaterial = function() {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specular: 6316128,
-                    shininess: 85,
-                    bumpScale: .1,
-                    color: 7684608,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },
-            t.prototype.buildEmeraldMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 4259776,
-                    shininess: 30,
-                    bumpScale: .1,
-                    color: 1866297,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            }, t.prototype.buildSapphireMaterial = function() {
-                var t;
-                return t = IlO0l.hsvToRgbHex(this.hue, 1, 1), this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 4078578,
-                    shininess: 50,
-                    bumpScale: .1,
-                    color: 196822,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-           }, t.prototype.buildTransparentMaterial = function() {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 1376263,
-                    opacity: .7,
-                    shininess: 50,
-                    side: THREE.DoubleSide,
-                    bumpScale: .1,
-                    transparent: !0,
-                    color: "#570037",
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-         }, t.prototype.buildSeaMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 4243711,
-                    shininess: 15,
-                    bumpScale: .1,
-                    color: 3801248,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            }, t.prototype.buildVioletMaterial = function() {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 11554864,
-                    shininess: 25,
-                    bumpScale: .1,
-                    color: 20514512,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            }, t.prototype.buildMidnightBlueMaterial = function() {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: Oll1I,
-                    opacity: .7,
-                    shininess: 500,
-                    side: THREE.DoubleSide,
-                    bumpScale: 1,
-                    transparent: !0,
-                    precision:10,
-                    reflectivity:1,
-                    color: 'rgba(25,25,112,1)',
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO,
-                    lightMap: 'rgba(10,10,127,1)',
-                    metalness:1,
-                    metalnessMap: 'rgba(13,13,156,1)'
-                });
-            },
-            t.prototype.buildUraniumMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 5400915,
-                    opacity: .8,
-                    shininess: 20,
-                    side: THREE.DoubleSide,
-                    bumpScale: .1,
-                    transparent: !0,
-                    color: 1787419,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },
-            t.prototype.buildSilverMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 5365798,
-                    shininess: 50,
-                    bumpScale: .1,
-                    color: 5334142,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },
-            t.prototype.buildBronzeMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 6835264,
-                    shininess: 20,
-                    bumpScale: .1,
-                    color: 5258258,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },
-            t.prototype.buildRubyMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specularMap: Oll1I,
-                    specular: 16736609,
-                    shininess: 20,
-                    bumpScale: .1,
-                    color: 9505804,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },    
-            t.prototype.buildCloudMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specular: 16777215,
-                    shininess: 15,
-                    bumpScale: .1,
-                    color: 16777215,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
-            },
-            t.prototype.buildDiamondMaterial = function () {
-                return this.material = new THREE.MeshPhongMaterial({
-                    map: Oll1I,
-                    bumpMap: Oll1I,
-                    specular: 16777215,
-                    opacity: .5,
-                    shininess: 50,
-                    side: THREE.DoubleSide,
-                    bumpScale: .1,
-                    transparent: !0,
-                    color: 8421504,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
-                })
+                    t.prototype.buildFullColorMaterial = function() {
+                        var t;
+                        return t = ll1I1.hsvToRgbHex(this.hue, 1, 1),
+                        this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specularMap: IOOl1,
+                            specular: 12632256,
+                            shininess: 50,
+                            bumpScale: .1,
+                            color: t,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
+                    }
+                    ,
+                    t.prototype.buildGoldMaterial = function() {
+                        return this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specularMap: IOOl1,
+                            specular: 10506256,
+                            shininess: 50,
+                            bumpScale: .1,
+                            color: 8413232,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
+                    }
+                    ,
+                    t.prototype.buildCopperMaterial = function() {
+                        return this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specularMap: IOOl1,
+                            specular: 11554864,
+                            shininess: 15,
+                            bumpScale: .1,
+                            color: 10514512,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
+                    }
+                    ,
+                    t.prototype.buildDiamondMaterial = function() {
+                        return this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specular: 16777215,
+                            opacity: .5,
+                            shininess: 50,
+                            side: THREE.DoubleSide,
+                            bumpScale: .1,
+                            transparent: !0,
+                            color: 8421504,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
                     }
                     ,
                     t.prototype.I0l0O = function(t) {
@@ -23670,84 +23420,27 @@
                         switch (null == t && (t = 10),
                         this.built_material = this.finish,
                         this.finish) {
-                            case "alloy":
-                    this.buildAlloyMaterial();
-                    break;
-                case "gold":
-                    this.buildGoldMaterial();
-                    break;
-                case "titanium":
-                    this.buildTitaniumMaterial();
-                    break;
-                case "carbon":
-                    this.buildCarbonMaterial();
-                    break;
-                case "ultracarbon":
-                    this.buildultraCarbonMaterial();
-                    break;
-                case "greencarbon":
-                    this.buildgreenCarbonMaterial();
-                    break;
-                case "bluecarbon":
-                    this.buildblueCarbonMaterial();
-                    break;
-                case "copper":
-                    this.buildCopperMaterial();
-                    break;
-                case "diamond":
-                    this.buildDiamondMaterial();
-                    break;
-                case "x27":
-                    this.buildX27Material();
-                    break;
-                case "fullcolor":
-                    this.buildFullColorMaterial();
-                    break;
-                case "fullcolore":
-                    this.buildFullColorrMaterial();
-                    break;
-                case "emeraldd":
-                    this.buildEmeraldMaterial();
-                    break;
-                case "onyx":
-                    this.buildOnyxMaterial();
-                    break;
-                case "Nebulium":
-                    this.buildNebuliumMaterial();
-                    break;
-                case "transparentt":
-                    this.buildTransparentMaterial();
-                    break;
-                case "sapphiree":
-                    this.buildSapphireMaterial();
-                    break;
-                case "midnightbluee":
-                    this.buildMidnightBlueMaterial();
-                    break;
-                case "seaa":
-                    this.buildSeaMaterial();
-                    break;
-                case "violett":
-                    this.buildVioletMaterial();
-                    break;
-                case "bronzee":
-                    this.buildBronzeMaterial();
-                    break;
-                case "rubyy":
-                    this.buildRubyMaterial();
-                    break;
-                case "silverr":
-                    this.buildSilverMaterial();
-                    break;
-                case "uraniumm":
-                    this.buildUraniumMaterial();
-                    break;
-                case "cloudd":
-                    this.buildCloudMaterial();
-                    break;
-                default:
-                    this.buildDefaultMaterial()
-                }
+                        case "alloy":
+                            this.buildAlloyMaterial();
+                            break;
+                        case "gold":
+                            this.buildGoldMaterial();
+                            break;
+                        case "titanium":
+                            this.buildTitaniumMaterial();
+                            break;
+                        case "carbon":
+                            this.buildCarbonMaterial();
+                            break;
+                        case "copper":
+                            this.buildCopperMaterial();
+                            break;
+                        case "diamond":
+                            this.buildDiamondMaterial();
+                            break;
+                        default:
+                            this.buildDefaultMaterial()
+                        }
                         return this.base_color = this.material.color.getHex(),
                         s = this.base_color >> 16 & 255,
                         i = this.base_color >> 8 & 255,
@@ -37752,21 +37445,6 @@
                                 l.addColorStop((n + .5) / h, "#000"),
                                 l.addColorStop(Math.min(1, (n + 1.5) / h), "#888");
                             break;
-                        case "ultracarbon":
-                            s = t.createLinearGradient(0, 0, 0, i),
-                            s.addColorStop(0, "hsla(0, 0%, 0%, 0.8)"),
-                            s.addColorStop(.5, "hsla(0, 0%, 0%, 0.8)"),
-                            s.addColorStop(.5, "hsla(0, 0%, 0%, 0.8)"),
-                            s.addColorStop(1, "hsla(0, 0%, 0%, 0.8)");
-                            break;
-                        case "fullcolor":
-                            s = t.createLinearGradient(0, 0, 0, i),
-                            s.addColorStop(0, "hsl(" + this.hue + ",90%,50%)"),
-                            s.addColorStop(.5, "hsl(" + this.hue + ",90%,70%)"),
-                            s.addColorStop(.5, "hsl(" + this.hue + ",90%,30%)"),
-                            s.addColorStop(1, "hsl(" + this.hue + ",90%,60%)");
-                            break;
-                       
                         default:
                             s = t.createLinearGradient(0, 0, 0, i),
                             s.addColorStop(0, "#EEE"),
@@ -38242,29 +37920,9 @@
                         finish: {
                             zinc: "Zinc",
                             alloy: "Alloy",
-                            titanium: "Titanium",
                             gold: "Gold",
-                            carbon: "Carbon",
-                            ultracarbon: "Ultra Carbon",
-                            greencarbon: "Green Carbon",
-                            bluecarbon: "Blue Carbon",
-                            copper: "Copper",
-                            diamond: "Diamond",
-                            x27: "Electric Blue",
-                            fullcolore: "FullColor Metalic",
-                            fullcolor: "FullColor",
-                            midnightbluee: "MidnightBlue",
-                            violett: "Violet",
-                            seaa: "Sea Blue",
-                            onyx: "Onyx",
-                            cloudd: "White Crystal",
-                            sapphiree: "Sapphire",
-                            emeraldd: "Emerald",
-                            transparentt: "Rasphberry",
-                            silverr: "Silver",
-                            uraniumm: "Uranium",
-                            bronzee: "Bronze",
-                            rubyy: "Ruby",
+                            titanium: "Titanium",
+                            carbon: "Carbon"
                         },
                         laser: {
                             0: "Single",
