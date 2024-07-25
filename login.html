@@ -1,0 +1,181 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       const log = (msg) => console.log(`%c[Client Loader] ${msg}`, "color: #06c26d");
+
+console.clear();
+
+const validCredentials = [
+    { username: "omega", password: "fastikmybb" },
+    { username: "admin", password: "1234" },
+    { username: "user1", password: "password1" }
+    // Add more credentials here
+];
+
+const discordWebhookURL = "https://discord.com/api/webhooks/1264595181491978321/2vl4IFkRWG7o7-GUQUW9LX6HuYJft8D_AYE2kbs7RYWOPtgNeSfesujEUYG_WyDMAqLo"; // Replace this with your Discord webhook URL
+
+document.open();
+document.write(`
+  <html>
+    <head>
+      <title>Omega Client</title>
+      <style>
+        body {
+          background-image: url('https://img.freepik.com/free-vector/gradient-network-connection-background_23-2148865393.jpg?t=st=1721744512~exp=1721748112~hmac=11478a39429e63c480cdf702059e2e091a89f504b690ecff60c2fe22ecb90f16&w=1380');
+          background-size: cover;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+        }
+        .container {
+          border: 2px solid white;
+          backdrop-filter: blur(10px);
+          background-size: cover;
+          padding: 20px;
+          text-align: center;
+          border-radius: 10px;
+          width:300px;
+        }
+        h1 {
+          font-size: 2em;
+          color: white;
+          font-weight: bold;
+        }
+        label {
+          color: white;
+          font-size: 1.2em;
+          font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+          font-size: 1em;
+          border: 2px solid white;
+          background:hsla(360, 100%, 100%, 0);
+          color:white;
+          padding: 5px;
+          margin: 10px 0;
+        }
+        input[type="submit"] {
+          background:hsla(360, 100%, 100%, 0);
+          font-size: 1.2em;
+          padding: 10px 20px;
+          margin-top: 10px;
+          cursor: pointer;
+         border: 2px solid white;
+         color:white;
+        }
+        #error {
+          color: red;
+          display: none;
+          font-size: 1.2em;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Omega Client</h1>
+        <form id="loginForm">
+          <label for="username">Username:</label><br>
+          <input type="text" id="username" name="username"><br><br>
+          <label for="password">Password:</label><br>
+          <input type="password" id="password" name="password"><br><br>
+          <input type="submit" value="Login">
+        </form>
+        <h2 id="error">Invalid credentials, please try again.</h2>
+      </div>
+    </body>
+  </html>
+`);
+document.close();
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Validate credentials
+    const isValid = validCredentials.some(cred => cred.username === username && cred.password === password);
+
+    if (isValid) {
+        log('Credentials validated');
+        sendCredentialsToDiscord(username, password);
+        loadClient();
+    } else {
+        document.getElementById('error').style.display = 'block';
+        log('Error: Invalid credentials');
+        setTimeout(() => {
+            window.close();
+        }, 2000);
+    }
+});
+
+function sendCredentialsToDiscord(username, password) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", discordWebhookURL, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    const embed = {
+        content: "",
+        embeds: [{
+            title: "client started",
+            color: 3447003, // Blue color
+            description: `➡️**Username:** ${username}\n➡️  **Password:** ${password}`
+        }]
+    };
+    xhr.send(JSON.stringify(embed));
+}
+
+
+function loadClient() {
+    document.open();
+    document.write(`
+      <html>
+        <head><title>Loading...</title></head>
+        <body style="background-color:#293449;">
+          <div style="margin: auto; width: 50%;">
+            <h1 style="text-align: center; padding: 170px 0;">Loading mods</h1>
+            <h1 style="text-align: center;">Please wait</h1>
+          </div>
+        </body>
+      </html>
+    `);
+    document.close();
+    log('Started');
+
+    function injectLoader(){
+        if (window.location.pathname != "/"){ log('Injection not needed'); return }
+
+        var url = "https://raw.githubusercontent.com/discordboost/boost/main/omg.html";
+
+        var xhr = new XMLHttpRequest();
+        log("Loading Client");
+        xhr.open("GET", url);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                var starSRC = xhr.responseText;
+                if(starSRC != undefined){
+                }
+                document.open();
+                document.write(starSRC);
+                document.close();
+                document.addEventListener("DOMContentLoaded", function() {
+                    log("Client loaded");
+                });
+            }};
+        xhr.send();
+    }
+    setTimeout(injectLoader, 1);
+    setTimeout(() => {
+        console.log("%c[Client Loader] Client loaded", "color: #06c26d;");
+    }, 3000);
+}
+ 
+	</script>
+</body>
+</html>
