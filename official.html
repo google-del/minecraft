@@ -19432,6 +19432,12 @@
                 case "blue":
                     this.buildBlueMaterial();
                     break;
+                case "purple":
+                    this.buildPurpleMaterial();
+                     break;
+                case "black":
+                    this.buildBlackMaterial();
+                    break;
                 case "carbon":
                     this.buildCarbonMaterial();
                     break;
@@ -19493,6 +19499,34 @@
                             shininess: 30,
                             bumpScale: .1,
                             color: 2055892,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
+                    }
+                    ,
+                    t.prototype.buildPurpleMaterial = function() {
+                        return this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specularMap: IOOl1,
+                            specular: 8413264,
+                            shininess: 30,
+                            bumpScale: .1,
+                            color: 11602943,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
+                    }
+                    ,
+                    t.prototype.buildBlackMaterial = function() {
+                        return this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specularMap: IOOl1,
+                            specular: 8413264,
+                            shininess: 30,
+                            bumpScale: .1,
+                            color: 589824,
                             emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
                             emissiveMap: ll1IO
                         })
@@ -23400,6 +23434,12 @@
                         case "titanium":
                             this.buildTitaniumMaterial();
                             break;
+                        case "purple":
+                            this.buildPurpleMaterial();
+                            break;
+                        case "black":
+                            this.buildBlackMaterial();
+                            break;
                         case "carbon":
                             this.buildCarbonMaterial();
                             break;
@@ -23464,6 +23504,34 @@
                             shininess: 20,
                             bumpScale: .1,
                             color: 6316128,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
+                    }
+                    ,
+                    t.prototype.buildPurpleMaterial = function() {
+                        return this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specularMap: IOOl1,
+                            specular: 8413264,
+                            shininess: 30,
+                            bumpScale: .1,
+                            color: 11602943,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
+                    }
+                    ,
+                    t.prototype.buildBlackMaterial = function() {
+                        return this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specularMap: IOOl1,
+                            specular: 8413264,
+                            shininess: 30,
+                            bumpScale: .1,
+                            color: 589824,
                             emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
                             emissiveMap: ll1IO
                         })
@@ -37375,6 +37443,20 @@
                             s.addColorStop(.5, "hsla(213, 57%, 36%, 1)"),
                             s.addColorStop(.5, "hsla(213, 100%, 36%, 1)"),
                             s.addColorStop(1, "hsla(213, 100%, 50%, 1)");
+                            break;
+                        case "black":
+                            s = t.createLinearGradient(0, 0, 0, i),
+                            s.addColorStop(0, "#141410"),
+                            s.addColorStop(.5, "#030202"),
+                            s.addColorStop(.5, "#030302"),
+                            s.addColorStop(1, "#1a1614");
+                            break;
+                        case "purple":
+                            s = t.createLinearGradient(0, 0, 0, i),
+                            s.addColorStop(0, "hsla(290, 100%, 50%, 1)"),
+                            s.addColorStop(.5, "hsla(290, 100%, 31%, 1)"),
+                            s.addColorStop(.5, "hsla(290, 66%, 31%, 1)"),
+                            s.addColorStop(1, "hsla(290, 66%, 31%, 0.81)");
                             break;
                         case "carbon":
                             for (s = t.createLinearGradient(0, 0, 0, i),
