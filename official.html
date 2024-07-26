@@ -19429,6 +19429,9 @@
                 case "titanium":
                     this.buildTitaniumMaterial();
                     break;
+                case "blue":
+                    this.buildCarbonMaterial();
+                    break;
                 case "carbon":
                     this.buildCarbonMaterial();
                     break;
@@ -19468,6 +19471,20 @@
                     }
                     ,
                     t.prototype.buildAlloyMaterial = function() {
+                        return this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specularMap: IOOl1,
+                            specular: 8413264,
+                            shininess: 30,
+                            bumpScale: .1,
+                            color: 10531008,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
+                    }
+                    ,
+                    t.prototype.buildBlueMaterial = function() {
                         return this.material = new THREE.MeshPhongMaterial({
                             map: IOOl1,
                             bumpMap: IOOl1,
@@ -23386,6 +23403,9 @@
                         case "carbon":
                             this.buildCarbonMaterial();
                             break;
+                        case "blue":
+                            this.buildBlueMaterial();
+                            break;
                         default:
                             this.buildDefaultMaterial()
                         }
@@ -23408,6 +23428,20 @@
                     }
                     ,
                     t.prototype.buildAlloyMaterial = function() {
+                        return this.material = new THREE.MeshPhongMaterial({
+                            map: IOOl1,
+                            bumpMap: IOOl1,
+                            specularMap: IOOl1,
+                            specular: 8413264,
+                            shininess: 30,
+                            bumpScale: .1,
+                            color: 10531008,
+                            emissive: ll1I1.hsvToRgbHex(this.hue, .5, 1),
+                            emissiveMap: ll1IO
+                        })
+                    }
+                    ,
+                    t.prototype.buildBlueMaterial = function() {
                         return this.material = new THREE.MeshPhongMaterial({
                             map: IOOl1,
                             bumpMap: IOOl1,
@@ -37335,6 +37369,13 @@
                             s.addColorStop(.5, "hsl(20,100%,30%)"),
                             s.addColorStop(1, "hsl(40,100%,50%)");
                             break;
+                        case "blue":
+                            s = t.createLinearGradient(0, 0, 0, i),
+                            s.addColorStop(0, "hsla(201, 100%, 50%, 1)"),
+                            s.addColorStop(.5, "hsla(213, 57%, 36%, 1)"),
+                            s.addColorStop(.5, "hsla(213, 100%, 36%, 1)"),
+                            s.addColorStop(1, "hsla(213, 100%, 50%, 1)");
+                            break;
                         case "carbon":
                             for (s = t.createLinearGradient(0, 0, 0, i),
                             h = Math.min(10, this.size / 10),
@@ -37889,6 +37930,7 @@
                 titanium: "Titanium",
                 gold: "Gold",
                 carbon: "Carbon",
+                blue: "Blue",
                         },
                         laser: {
                             0: "Single",
